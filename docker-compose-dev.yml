@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    environment:
+      CADDYFILE: |
+        http://ppd-git.mlfmonde.org {
+          proxy / http://$CONTAINER:80
+        }
+    volumes:
+      - config:/etc/gitlab
+      - logs:/var/log/gitlab
+      - data:/var/opt/gitlab
+    networks:
+      - cluster_default
+
+volumes:
+  config:
+    driver: btrfs
+  logs:
+    driver: btrfs
+  data:
+    driver: btrfs
+
+networks:
+  cluster_default:
+    external: true

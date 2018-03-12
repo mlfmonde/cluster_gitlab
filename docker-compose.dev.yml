@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    ports:
+      - '8585:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - 'logs:/var/log/gitlab'
+      - 'data:/var/opt/gitlab'
+
+volumes:
+  config:
+  logs:
+  data:

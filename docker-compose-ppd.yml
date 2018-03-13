@@ -4,16 +4,14 @@ services:
     image: 'gitlab/gitlab-ce:latest'
     restart: always
     environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        from_file "/etc/gitlab/external_gitlab.rb"
       CADDYFILE: |
         https://ppd-git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
     volumes:
-      - 'config:/etc/gitlab'
-      - 'logs:/var/log/gitlab'
-      - 'data:/var/opt/gitlab'
+      - config:/etc/gitlab
+      - logs:/var/log/gitlab
+      - data:/var/opt/gitlab
     networks:
       - cluster_default
 

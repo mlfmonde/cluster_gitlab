@@ -11,10 +11,10 @@ services:
         http://*.git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        http://docs.mlfmonde.org{
+        http://docs.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        https://registry.mlfmonde.org{
+        https://registry.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
     volumes:

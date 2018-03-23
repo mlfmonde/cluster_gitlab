@@ -8,13 +8,20 @@ services:
         https://git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
+        https://*.git.mlfmonde.org {
+          proxy / http://$CONTAINER:80
+        }
         https://docs.mlfmonde.org{
+          proxy / http://$CONTAINER:80
+        }
+        https://registry.mlfmonde.org{
           proxy / http://$CONTAINER:80
         }
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab
       - data:/var/opt/gitlab
+      - registry:/var/opt/gitlab/gitlab-rails/shared/registry
     networks:
       - cluster_default
       - backend
@@ -35,6 +42,8 @@ volumes:
   logs:
     driver: btrfs
   data:
+    driver: btrfs
+  registry:
     driver: btrfs
   runner:
     driver: btrfs

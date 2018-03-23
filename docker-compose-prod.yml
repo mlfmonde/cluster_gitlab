@@ -8,9 +8,6 @@ services:
         https://git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        http://*.git.mlfmonde.org {
-          proxy / http://$CONTAINER:80
-        }
         http://docs.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
@@ -31,7 +28,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - backend
-
 
 volumes:
   config:

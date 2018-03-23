@@ -14,10 +14,6 @@ services:
         http://docs.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        https://docker-registry.mlfmonde.org {
-          proxy / http://$CONTAINER:80
-          tls self_signed
-        }
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

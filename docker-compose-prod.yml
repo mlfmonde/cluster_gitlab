@@ -8,10 +8,10 @@ services:
         https://git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        https://*.git.mlfmonde.org {
+        http://*.git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
-        https://docs.mlfmonde.org{
+        http://docs.mlfmonde.org{
           proxy / http://$CONTAINER:80
         }
         https://registry.mlfmonde.org{

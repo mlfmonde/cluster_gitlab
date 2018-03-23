@@ -16,6 +16,7 @@ services:
         }
         https://docker-registry.mlfmonde.org {
           proxy / http://$CONTAINER:80
+          self_signed
         }
     volumes:
       - config:/etc/gitlab

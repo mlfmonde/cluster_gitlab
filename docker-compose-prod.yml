@@ -17,6 +17,17 @@ services:
       - data:/var/opt/gitlab
     networks:
       - cluster_default
+      - backend
+
+  runner:
+    image: 'gitlab/gitlab-runner:v10.6.0'
+    restart: always
+    volumes:
+      - runner:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - backend
+
 
 volumes:
   config:
@@ -25,7 +36,10 @@ volumes:
     driver: btrfs
   data:
     driver: btrfs
+  runner:
+    driver: btrfs
 
 networks:
   cluster_default:
     external: true
+  backend:

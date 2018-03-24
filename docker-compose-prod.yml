@@ -12,7 +12,7 @@ services:
           proxy / http://$CONTAINER:80
         }
         https://docker.mlfmonde.org {
-          proxy / http://$CONTAINER:80
+          proxy / http://$CONTAINER:5001
         }
     volumes:
       - config:/etc/gitlab

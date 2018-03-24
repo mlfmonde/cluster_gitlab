@@ -11,6 +11,9 @@ services:
         http://docs.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
+        https://docker.mlfmonde.org {
+          proxy / http://$CONTAINER:80
+        }
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

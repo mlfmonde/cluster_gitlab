@@ -1,4 +1,4 @@
-version: '2'
+version: '3.6'
 services:
   web:
     image: 'gitlab/gitlab-ce:10.6.0-ce.0'
@@ -38,17 +38,19 @@ services:
 
 volumes:
   config:
-    driver: btrfs
+    driver: anybox/buttervolume:latest
   logs:
-    driver: btrfs
+    driver: anybox/buttervolume:latest
   data:
-    driver: btrfs
+    driver: anybox/buttervolume:latest
   registry:
-    driver: btrfs
+    driver: anybox/buttervolume:latest
   runner:
-    driver: btrfs
+    driver: anybox/buttervolume:latest
 
 networks:
   cluster_default:
     external: true
   backend:
+  default:
+    driver: overlay

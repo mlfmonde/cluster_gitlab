@@ -14,6 +14,21 @@ services:
         https://docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001
         }
+      HAPROXY: |
+        git-ssh:
+          frontend:
+            mode: tcp
+            bind:
+              - "*:2222"
+            options:
+              - "option socket-stats"
+              - "option tcplog"
+          backends:
+            - port: 22
+              peer_port: 2222
+              server_option: "resolvers dns check inter 5s"
+              options:
+                - "option tcp-check"
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

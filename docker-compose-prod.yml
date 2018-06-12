@@ -23,6 +23,8 @@ services:
           backends:
             - port: 22
               peer_port: 2222
+    ports:
+      - "2222:22"
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

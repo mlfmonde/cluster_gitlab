@@ -8,6 +8,8 @@ services:
         https://ppd-git.mlfmonde.org {
           proxy / http://$CONTAINER:80
         }
+    ports:
+      - "2222:22"
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

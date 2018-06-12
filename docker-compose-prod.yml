@@ -48,7 +48,6 @@ networks:
   cluster_default:
     external: true
   backend:
-  default:
     driver: overlay
-  backend:
+  default:
     driver: overlay

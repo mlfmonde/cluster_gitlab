@@ -20,9 +20,15 @@ services:
             mode: tcp
             bind:
               - "*:2222"
+            options:
+              - "option socket-stats"
+              - "option tcplog"
           backends:
             - port: 22
               peer_port: 2222
+              server_option: "resolvers dns check inter 5s"
+              options:
+                - "option tcp-check"
     ports:
       - "2222:22"
     volumes:

@@ -29,8 +29,6 @@ services:
               server_option: "resolvers dns check inter 5s"
               options:
                 - "option tcp-check"
-    ports:
-      - "2222:22"
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

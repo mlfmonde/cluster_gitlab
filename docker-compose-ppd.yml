@@ -19,13 +19,13 @@ services:
           frontend:
             mode: tcp
             bind:
-              - "*:2222"
+              - "*:3333"
             options:
               - "option socket-stats"
               - "option tcplog"
           backends:
             - port: 22
-              peer_port: 2222
+              peer_port: 3333
               server_option: "resolvers dns check inter 5s"
               options:
                 - "option tcp-check"

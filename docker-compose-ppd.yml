@@ -14,26 +14,13 @@ services:
         https://ppd-docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001
         }
-      HAPROXY: |
-        ppd-git-ssh:
-          frontend:
-            mode: tcp
-            bind:
-              - "*:3333"
-            options:
-              - "option socket-stats"
-              - "option tcplog"
-          backends:
-            - port: 22
-              peer_port: 3333
-              server_option: "resolvers dns check inter 5s"
-              options:
-                - "option tcp-check"
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab
       - data:/var/opt/gitlab
       - registry:/var/opt/gitlab/gitlab-rails/shared/registry
+    ports:
+      - "3333:22"
     networks:
       - cluster_default
       - backend

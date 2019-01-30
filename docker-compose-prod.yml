@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   web:
-    image: 'gitlab/gitlab-ce:10.6.0-ce.0'
+    image: 'gitlab/gitlab-ce:11.7.0-ce.0'
     restart: always
     environment:
       CADDYFILE: |
@@ -39,7 +39,7 @@ services:
       - backend
 
   runner:
-    image: 'gitlab/gitlab-runner:v10.6.0'
+    image: 'gitlab/gitlab-runner:v11.7.0'
     restart: always
     volumes:
       - runner:/etc/gitlab-runner

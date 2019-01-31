@@ -14,9 +14,6 @@ services:
         https://ppd-docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001
         }
-        http://ppd-pages.mlfmonde.org {
-          proxy / http://$CONTAINER:8090
-        }
     volumes:
       - config:/etc/gitlab
       - logs:/var/log/gitlab

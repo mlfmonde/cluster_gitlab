@@ -14,7 +14,7 @@ services:
         https://ppd-docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001
         }
-        https://ppd-pages.mlfmonde.org {
+        http://ppd-pages.mlfmonde.org {
           proxy / http://$CONTAINER:8090
         }
     volumes:

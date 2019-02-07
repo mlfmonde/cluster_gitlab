@@ -9,7 +9,7 @@ services:
           proxy / http://$CONTAINER:80
         }
         http://docs.mlfmonde.org {
-          proxy / http://$CONTAINER:8090
+          proxy / http://$CONTAINER:8091
         }
         https://docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001

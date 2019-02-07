@@ -9,7 +9,7 @@ services:
           proxy / http://$CONTAINER:80
         }
         http://ppd-docs.mlfmonde.org {
-          proxy / http://$CONTAINER:8090
+          proxy / http://$CONTAINER:8091
         }
         https://ppd-docker.mlfmonde.org {
           proxy / http://$CONTAINER:5001

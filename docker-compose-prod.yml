@@ -36,7 +36,7 @@ services:
       - registry:/var/opt/gitlab/gitlab-rails/shared/registry
     networks:
       - cluster_default
-      - backend
+      - backend_20190207
 
   runner:
     image: 'gitlab/gitlab-runner:v11.7.0'
@@ -45,7 +45,7 @@ services:
       - runner:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
-      - backend
+      - backend_20190207
 
 volumes:
   config:
@@ -62,7 +62,7 @@ volumes:
 networks:
   cluster_default:
     external: true
-  backend:
+  backend_20190207:
     driver: overlay
   default:
     driver: overlay

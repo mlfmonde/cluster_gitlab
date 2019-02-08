@@ -15,7 +15,7 @@ services:
           proxy / http://$CONTAINER:5001
         }
       HAPROXY: |
-        git-ssh:
+        ppd-git-ssh:
           frontend:
             mode: tcp
             bind:
